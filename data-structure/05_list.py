@@ -1,6 +1,6 @@
 def showListUsage():
     """
-    展示Python列表常用操作示例
+    展示Python列表常用操作示例 (含列表推导式与切片)
     返回: None（用于演示输出）
     """
     
@@ -12,11 +12,17 @@ def showListUsage():
     list4 = list(range(5))         # range()生成列表
     list5 = list("Python")         # 字符串转列表
 
+    # 【新增】列表推导式：最强大的列表创建方式
+    squares = [x**2 for x in range(1, 6)]          # 基础推导
+    evens = [x for x in range(10) if x % 2 == 0]  # 带条件过滤
+    
     print(f"空列表:          {list1}")
     print(f"数字列表:        {list2}")
     print(f"字符串列表:      {list3}")
     print(f"范围列表:        {list4}")
     print(f"字符列表:        {list5}")
+    print(f"平方推导：{squares}")
+    print(f"偶数过滤：{evens}")
 
 
     # ================== 2. 添加与修改元素 ==================
@@ -123,15 +129,19 @@ def showListUsage():
         print(f"{method:12} | {desc:15}")
 
 
-    # ================== 10. 综合操作示例 ==================
-    print("\n【10. 综合列表操作】")
-    final_list = []
-    final_list.extend([10, 20])
-    final_list.append("text")
-    final_list.insert(1, "int")
-    final_list.remove("text")
-
-    print(f"排序后：{sorted(final_list)}")
+    # ================== 10. 综合操作示例 (含切片) ==================
+    print("\n【10. 综合列表操作 & 切片】")
+    final_list = [10, 20, 30, 40, 50]
+    
+    # 显式演示切片：start:end:step
+    sub1 = final_list[1:4]      # 取中间部分
+    sub2 = final_list[::-1]     # 完全反转 (等同于 reverse)
+    sub3 = final_list[::2]      # 每隔一个取一个
+    
+    print(f"原列表：{final_list}")
+    print(f"切片 [1:4]: {sub1}")
+    print(f"切片 [::-1] (反转): {sub2}")
+    print(f"切片 [::2] (隔项): {sub3}")
 
 
 # ================== 主程序演示 ==================
